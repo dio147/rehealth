@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>弹出DIV窗口</title>
+<style>
+		.shadow_css {
+			display: none;
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			z-index: 10;
+			/* 为mozilla firefox 设置透明度  */
+			-moz-opacity: 0.6;
+			/* 设置透明度 */
+			opacity: .60;
+			/* 为IE 设置透明度  */
+			filter: alpha(opacity=66);
+		}
+
+		.window_css {
+			display: none;
+			position: absolute;
+			top: 20%;
+			left: 40%;
+			width: 20%;
+			height: 20%;
+			border: 3px solid honeydew;
+			background-color: aliceblue;
+			z-index: 11;
+		}
+	</style>
+
+</head>
+
+<body>
+		<!--用来引出悬浮窗口的div-->
+		<center>
+		<div>
+			<a href="javascript:void(0)" onclick="displayWindow()">
+				点击显示悬浮窗口
+			</a>
+		</div>
+			</center>
+		<!--悬浮窗口-->
+		<div id="window" class="window_css">
+
+			<div style="text-align:right; line-height:20px;">
+
+			<a href="javascript:void(0)" onclick="hideWindow()">x</a>
+				<div class="clear"></div>
+				<center>
+				<p>用户名错误</p></center>
+<!--				<iframe src="../tan.php?20220103" width="100%" height="60%"  frameborder="0" scrolling="no" ></iframe>-->
+			</div>
+
+		</div>
+		<!--出现悬浮窗口后,背景变暗-->
+		<div id="shadow" class="shadow_css"></div>
+	</body>
+<script>
+		/*当点击调用此方法后,将悬浮窗口显示出来,背景变暗*/
+		function displayWindow() {
+			/*悬浮窗口的显示,需要将display变成block*/
+			document.getElementById("window").style.display = "block";
+			/*将背景变暗*/
+			document.getElementById("shadow").style.display = "block";
+		}
+
+		/*当点击调用此方法,将悬浮窗口和背景全部隐藏*/
+		function hideWindow() {
+			document.getElementById("window").style.display = "none";
+			document.getElementById("shadow").style.display = "none";
+		}
+</script>
+
+</html>
+
+<!--{% load static %}-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+<!--    <title>login</title>-->
+<!--    <link rel="stylesheet" href="{% static 'css/login.css'%}" />-->
+
+<!--</head>-->
+<!--<body>-->
+<!--    &lt;!&ndash; 弹框 &ndash;&gt;-->
+<!--    <dialog id="dialog">-->
+<!--      <div>hhhhhhhhhh</div>-->
+<!--      <button id="btn-close">关闭</button>-->
+<!--    </dialog>-->
+
+<!--    <button id="btn-open">打开</button>-->
+<!--    <button οnclick="alert('你好 JS');">生宿舍</button>-->
+
+<!---->
+<!--表格-->
+<!--<table border="1" cellspacing="0" cellpadding="5" align="center">-->
+        <!-- 设置表格标题 -->
+<!--        <caption>-->
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    用户信息-->
+<!--                </td>-->
+<!--                <td></td>-->
+<!--                <td></td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+<!--        </caption>-->
+        <!-- 表格头部 -->
+<!--        <thead>-->
+<!--            <tr>-->
+<!--                <th>编号</th>-->
+<!--                <th>姓名</th>-->
+<!--                <th>年龄</th>-->
+<!--                <th>性别</th>-->
+<!--            </tr>-->
+<!--        </thead>-->
+        <!-- 表格的数据部分 重要-->
+<!--        <tbody>-->
+<!--        <tr align="center">-->
+<!--            <td>1</td>-->
+<!--            <td>小白</td>-->
+<!--            <td>13</td>-->
+<!--            <td>男</td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--</table>-->
+
+<!--    <center>-->
+<!--  语法：-->
+<!--  <ol type="1">-->
+<!--      <li>新闻</li>-->
+<!--      <li>游戏</li>-->
+<!--      <li>电影</li>-->
+<!--      <li>音乐</li>-->
+<!--  </ol>-->
+<!--&lt;!&ndash;    </center>&ndash;&gt;-->
+<!--&lt;!&ndash;  属性type:&ndash;&gt;-->
+<!--&lt;!&ndash;     更改列表前的序号（普通数字，大写/小写字母，罗马数字）&ndash;&gt;-->
+<!--    <center>-->
+<!--    <div class="login-box">-->
+<!--        <h1>欢迎</h1>-->
+<!--        <section>-->
+<!--            <label for="username">用户名</label>-->
+<!--            <input type="text" name="请输入用户名-登录" id="username" />-->
+<!--        </section>-->
+<!--        <section>-->
+<!--            <label for="password">密码</label>-->
+<!--            <input type="password" name="请输入密码-登录" id="password" />-->
+<!--&lt;!&ndash;                 <span>忘记密码?</span>&ndash;&gt;-->
+<!--        </section>-->
+<!--        <button type="submit">登录</button>-->
+<!--        <a href="/login/" target="_blank"><button type="submit">登录</button></a>-->
+<!--属性target：-->
+<!--   设置资源的打开方式(在当前页面显示，还是在一个新窗口显示)-->
+<!--     _blank:在新窗口显示-->
+<!--     _parent:在父窗口显示（当前窗口）-->
+<!--&lt;!&ndash;步骤：&ndash;&gt;-->
+<!--&lt;!&ndash;   1. 设置锚点&ndash;&gt;-->
+<!--   <a name="/login/"></a>-->
+<!--&lt;!&ndash;   2. 将超链接与锚点关联&ndash;&gt;-->
+<!--   <a href="#/login/">返回顶部</a>-->
+
+<!--    </div>-->
+<!--    </center>-->
+<!--    <form action="/login/" method="post">-->
+<!--        用户名：<input type="text" name="请输入用户名" style="margin-left:18px;margin-top:20px" autocomplete="off"><br>-->
+<!--        密  码：<input type="password" name="请输入密码" style="margin-left:30px;margin-top:20px" autocomplete="off"><br>-->
+<!--        <input type="submit" value="登录" style="margin-left:80px;margin-top:20px"><br>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+<!--<script>-->
+<!--   let btnOpen = document.querySelector("#btn-open");-->
+<!--   let btnClose = document.querySelector("#btn-close");-->
+<!--   let dialog = document.querySelector("#dialog");-->
+
+<!--   // 打开弹窗-->
+<!--   btnOpen.addEventListener("click", function () {-->
+<!--     dialog.show();-->
+<!--   });-->
+
+<!--   // 关闭弹窗-->
+<!--   btnClose.addEventListener("click", function () {-->
+<!--     dialog.close();-->
+<!--   });-->
+<!-- </script>-->

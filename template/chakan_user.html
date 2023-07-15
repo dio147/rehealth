@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product Admin - Dashboard HTML Template</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <!--    <link rel="stylesheet" href="css/fontawesome.min.css" />-->
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}" />
+    <!-- https://fontawesome.com/ -->
+<!--    <link rel="stylesheet" href="css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <!-- https://getbootstrap.com/ -->
+<!--    <link rel="stylesheet" href="css/templatemo-style.css">-->
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+    <!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+    <style>
+    .buju{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+    flex-direction: row-reverse;
+    }
+    .buju1{
+    font-size: 1.1rem;
+    justify-content: space-between;
+    font-weight: 100;
+    color: #fff;
+    display: flex;
+    position: relative;
+    margin: 20px;
+    flex-direction: row-reverse;
+    }
+    .button {
+    position: relative;
+    background-color: #FFA500;
+	border:2px solid #FFA500;
+    border-radius:8px;
+    font-size: 18px;
+    color:  #FFFFFF;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.button:after {
+    content: "";
+    background: #a9a9a9;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+    </style>
+</head>
+
+<body id="reportsPage">
+    <div class="" id="home">
+        <nav class="navbar navbar-expand-xl">
+            <div class="container h-100">
+<!--                <a class="navbar-brand">-->
+                <a class="navbar-brand" href="index.html">
+                    <h1 class="tm-site-title mb-0">远程康复训练系统</h1>
+
+                </a>
+<!--                右上角下拉选择-->
+            </div>
+
+        </nav>
+        <div class="container">
+            <div class="buju1">
+
+                <div class="buju">
+                    <p class="text-white mt-5 mb-5">
+                        <a class="text-white mt-5 mb-5" href="/index_user?name={{username}}">返回</a>
+                    </p>
+                </div>
+                <div class="buju">
+                    <p class="text-white mt-5 mb-5">欢迎, <b>亲爱的{{username}}</b></p>
+                </div>
+            </div>
+            <!-- 展示得分 -->
+            <div class="col-12 tm-block-col">
+                    <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                        <section>
+                        <h2 class="tm-block-title">康复运动得分</h2>
+                            <canvas id="scoreChart"></canvas>
+                        </section>
+                    </div>
+                </div>
+
+            <div class="row tm-content-row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
+                    <div class="tm-bg-primary-dark tm-block">
+                        <h2 class="tm-block-title">各种动作平均</h2>
+                        <section>
+                            <canvas id="barChart"></canvas>
+                        </section>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
+                    <div class="tm-bg-primary-dark tm-block">
+                        <h2 class="tm-block-title">医生反馈</h2>
+                        <p class="tm-block-title">今日手势完成度较好，康复部位恢复良好</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <footer class="tm-footer row tm-mt-small">
+            <div class="col-12 font-weight-light">
+                <p class="text-center text-white mb-0 px-4 small">
+                    Copyright &copy; <b>2018</b> All rights reserved.
+
+                    Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/moment.min.js' %}"></script>
+    <script src="{% static 'js/Chart.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/tooplate-scripts.js' %}"></script>
+
+<!--    <script>-->
+<!--    var canvas = document.getElementById('score'); // 获取canvas标签-->
+<!--    var context = canvas.getContext('2d');          // 获得context对象-->
+
+<!--    context.moveTo(0,0);     // 定义初始位置-->
+<!--    context.lineTo(30,10);      // 定义连接线端点-->
+<!--    context.lineTo(50,100);     // 定义连接线端点-->
+<!--    context.lineTo(70,10);      // 定义连接线端点-->
+<!--    context.lineTo(90,100);     // 定义连接线端点-->
+<!--    context.stroke();           // 描边-->
+<!--        var data2={{y2}};-->
+<!--        var data1={{data1}};-->
+<!--    </script>-->
+    <script>
+        var plot2_y={{plot2_y|safe}};
+        var plot2_x={{plot2_x|safe}};
+        var plot1_y={{plot1_y|safe}};
+        var plot1_x={{plot1_x|safe}};
+        Chart.defaults.global.defaultFontColor = 'white';
+        let ctxLine,
+            ctxBar,
+            ctxPie,
+            optionsLine,
+            optionsBar,
+            optionsPie,
+            configLine,
+            configBar,
+            configPie,
+            lineChart,
+            barChart,
+            pieChart,
+            scoreChart;
+        // DOM is ready
+        $(function () {
+            drawLineChart(); // Line Chart
+            drawBarChart(); // Bar Chart
+            drawPieChart(); // Pie Chart
+            drawscoreChart(); // score Chart
+        })
+    </script>
+</body>
+
+</html>

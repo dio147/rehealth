@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/login.css'%}" />
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="box">
+        <div class="transtion-box">
+          <form action="/login/" method="post">
+            <div class="login-box">
+              <h1>欢迎</h1>
+                <section>
+                  <label for="username">用户名</label>
+                  <input type="text" name="请输入用户名-登录" id="username"/>
+                </section>
+                <section>
+                  <label for="password">密码</label>
+                  <input type="password" name="请输入密码-登录" id="password" />
+                </section>
+              <section>
+              <select name="用户身份">
+                <option value="-1" >---请选择---</option>
+                <option value="患者">患者</option>
+                <option value="医生">医生</option>
+              </select>
+              </section>
+                <button type="submit">登录</button>
+            </div>
+          </form>
+          <form action="/login/" method="post">
+          <div class="reg-box" style="display: none">
+            <h1>立即注册</h1>
+            <section>
+              <label for="username">用户名</label>
+              <input type="text" name="请输入用户名-注册" id="username"/>
+            </section>
+            <section>
+              <label for="password">密码</label>
+              <input type="password" name="请输入密码-注册" id="password" />
+            </section>
+            <section>
+              <label for="password-exact">确认密码</label>
+              <input type="password" name="请输入确认密码-注册" id="password-exact" />
+            </section>
+            <button type="submit">注册</button>
+          </div>
+          </form>
+        </div>
+        <div class="transferToReg">
+          <h1 class="title">注册成功</h1>
+          <span class="subTitle">立即登录！</span>
+          <button type="button" id="transfetBtn">注册</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let transfer = document.getElementById('transfetBtn');
+    transfer.addEventListener('click', function () {
+      let login = document.querySelector('.login-box');
+      let reg = document.querySelector('.reg-box');
+      let total = document.querySelector('.transtion-box');
+      let target = document.querySelector('.transferToReg');
+      let title = document.querySelector('.title');
+      let subTitle = document.querySelector('.subTitle');
+      transfer.innerText === '注册'
+        ? (() => {
+            target.style.left = 0;
+            total.style.left = 260 + 'px';
+            transfer.innerText = '登录';
+            title.innerText = '已有帐号？';
+            subTitle.innerText = '返回登陆';
+            setTimeout(() => {
+              login.style.display = 'none';
+              reg.style.display = 'flex';
+            }, 300);
+          })()
+        : (() => {
+            target.style.left = 640 + 'px';
+            total.style.left = 0;
+            transfer.innerText = '注册';
+            title.innerText = ' 注册成功';
+            subTitle.innerText = '立即登录！';
+            setTimeout(() => {
+              login.style.display = 'flex';
+              reg.style.display = 'none';
+            }, 300);
+          })();
+    });
+  </script>
+</html>

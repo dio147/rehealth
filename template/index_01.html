@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>username</title>
+</head>
+<body>
+<a href="#">{{username}}</a>
+<!--一个模块-->
+<hr>
+<ul>
+  {% for term in friends %}
+  <li>{{term}}</li>
+  {% endfor %}
+</ul>
+<!--另一个模块-->
+<hr>
+{% if age > 18 %}
+成年了
+{% else %}
+未成年
+{% endif %}
+<!--<hr>-->
+my birthday is {{ date(birthday,'Y年. m月. d日')}}.
+</body>
+</html>
